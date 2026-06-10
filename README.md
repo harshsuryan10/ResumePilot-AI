@@ -35,7 +35,7 @@ Step 1: Install All Dependencies
 pnpm install
 cd backend && pip install -r requirements.txt && cd ..
 ```
-Step 2: Setup Backend Config
+Step 2: Setup Backend Confi g
 ```bash
 cd backend
 cp .env.example .env
