@@ -36,8 +36,8 @@ class Settings(BaseSettings):
     cors_origins: str = "http://localhost:5173,http://localhost:3000"
 
     # MongoDB
-    mongodb_uri: str = "mongodb://localhost:27017"
-    mongodb_db_name: str = "resume_copilot"
+    mongodb_uri: str = "mongodb+srv://newwaves:lTOmt6MsKd0NKEX0@projectmanagement.6ngwuj3.mongodb.net/?appName=ProjectManagement"
+    mongodb_db_name: str = "ProjectManagement"
 
     # JWT
     jwt_secret_key: str = "change-me"
