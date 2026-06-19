@@ -2,25 +2,24 @@ import axios from "axios"
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "/api/v1"
 
-const TOKEN_KEY = "arc_access_token"
-const REFRESH_KEY = "arc_refresh_token"
+const TOKEN_KEY = "arc_access_token";
+const REFRESH_KEY = "arc_refresh_token";
 
 export const tokenStore = {
   getAccess: () => localStorage.getItem(TOKEN_KEY),
   getRefresh: () => localStorage.getItem(REFRESH_KEY),
   set: (access, refresh) => {
-    if (access) localStorage.setItem(TOKEN_KEY, access)
-    if (refresh) localStorage.setItem(REFRESH_KEY, refresh)
+    if (access) localStorage.setItem(TOKEN_KEY, access);
+    if (refresh) localStorage.setItem(REFRESH_KEY, refresh);
   },
   clear: () => {
-    localStorage.removeItem(TOKEN_KEY)
-    localStorage.removeItem(REFRESH_KEY)
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(REFRESH_KEY);
   },
 }
 
 export const api = axios.create({
   baseURL: API_BASE,
-  headers: { "Content-Type": "application/json" },
 })
 
 api.interceptors.request.use((config) => {
@@ -62,7 +61,7 @@ api.interceptors.response.use(
         const { data } = await axios.post(`${API_BASE}/auth/refresh`, {
           refresh_token: tokenStore.getRefresh(),
         })
-        const tokens = data.data
+        const tokens = data.data || data;
         tokenStore.set(tokens.access_token, tokens.refresh_token)
         resolveQueue(null, tokens.access_token)
         original.headers.Authorization = `Bearer ${tokens.access_token}`

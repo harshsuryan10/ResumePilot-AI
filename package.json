@@ -10,13 +10,16 @@
     "backend": "cd backend && python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.3.1",
     "axios": "^1.7.7",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.21.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.3.0",
+    "@tailwindcss/postcss": "^4.3.1",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.5.0",
     "postcss": "^8.5.15",

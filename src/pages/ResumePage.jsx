@@ -21,11 +21,7 @@ export default function ResumePage() {
 
   try {
     // Step 1: Upload Resume
-    const uploadResponse = await api.post("/resumes", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    })
+    const uploadResponse = await api.post("/resumes", formData)
 
     const resumeId = uploadResponse.data?.data?._id
 
